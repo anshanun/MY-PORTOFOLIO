@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* ── Color System — ubah di sini untuk ganti tema ── */
+:root {
+  --clr-primary:      #0038FF;
+  --clr-primary-dark: #001A99;
+  --clr-accent:       #CCFF00;
+  --clr-bg:           #ffffff;
+  --clr-bg-card:      #f8f9fa;
+  --clr-border:       rgba(0, 0, 0, 0.08);
+  --clr-text:         #0a0a0a;
+  --clr-text-muted:   rgba(0, 0, 0, 0.5);
+
+  /* Shadcn Compatibility */
+  --background:       var(--clr-bg);
+  --foreground:       var(--clr-text);
+  --muted:            var(--clr-bg-card);
+  --muted-foreground: var(--clr-text-muted);
+}
+
+html,
+body {
+  overflow-x: hidden;   /* mencegah horizontal scroll dari animasi toast/parallax */
+}
+
+body {
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes infiniteSlide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollDown {
+  0%   { top: -100%; }
+  100% { top: 100%; }
+}
+
+@keyframes diamond-rotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-diamond-rotate {
+  animation: diamond-rotate 12s linear infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
